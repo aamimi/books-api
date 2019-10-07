@@ -23,13 +23,14 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param  Request  $request
      *
      * @return void
      */
     public function store(Request $request)
     {
-        //
+        $user = Book::create($request->toArray());
+        return $user;
     }
 
     /**
@@ -47,7 +48,7 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $book
      *
      * @return void

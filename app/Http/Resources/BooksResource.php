@@ -10,18 +10,18 @@ class BooksResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
+     * @param  Request  $request
      *
      * @return array
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
-            'id'         => $this->id,
-            'title'      => $this->title,
-            'rating'     => $this->rating,
-            'author'     => new AuthorResource($this->user),
-            'created_at' => $this->created_at->format('d-m-Y H:i:s'),
+            'id'        => $this->id,
+            'title'     => $this->title,
+            'rating'    => $this->rating,
+            'author'    => new AuthorResource($this->user),
+            'createdAt' => $this->created_at,
         ];
     }
 }

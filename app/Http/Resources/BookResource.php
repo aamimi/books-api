@@ -10,7 +10,7 @@ class BookResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
+     * @param  Request  $request
      *
      * @return array
      */
@@ -19,9 +19,10 @@ class BookResource extends JsonResource
         return [
             'id'          => $this->id,
             'title'       => $this->title,
+            'description' => $this->description,
             'author'      => new AuthorResource($this->user),
-            'created_at'  => $this->created_at->format('d-m-Y H:i:s'),
-            'updated_at'  => $this->updated_at->format('d-m-Y H:i:s'),
+            'createdAt'  => $this->created_at,
+            'updatedAt'  => $this->updated_at,
             'ratings'     => BookRatingsResource::collection($this->ratings),
         ];
     }

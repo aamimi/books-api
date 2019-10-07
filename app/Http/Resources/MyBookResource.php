@@ -31,8 +31,8 @@ class MyBookResource extends JsonResource
             'title'       => $this->title,
             'description' => $this->description,
             'rating'      => $this->rating,
-            'created_at'  => $this->created_at->format('d-m-Y H:i:s'),
-            'updated_at'  => $this->updated_at->format('d-m-Y H:i:s'),
+            'createdAt'  => $this->created_at,
+            'updatedAt'  => $this->updated_at,
         ];
     }
 }

@@ -20,7 +20,7 @@ class BookRatingsResource extends JsonResource
     {
         return [
             'id'        => $this->id,
-            'full_name' => $this->full_name,
+            'fullName' => $this->full_name,
             'rating'    => $this->pivot->rating,
         ];
     }

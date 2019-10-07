@@ -3,27 +3,31 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Book extends Model
 {
+    /**
+     * The model's attributes.
+     *
+     * @var array
+     */
+//    protected $attributes = [
+//        'title'       => 'title',
+//        'description' => 'description',
+//        'user_id'      => 'userId',
+//        'created_at'   => 'createdAt',
+//        'updated_at'   => 'updatedAt'
+//    ];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['title', 'description', 'user_id'];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'created_at' => 'datetime:d-m-Y H:i:s',
-        'updated_at' => 'datetime:d-m-Y H:i:s',
-    ];
-
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
